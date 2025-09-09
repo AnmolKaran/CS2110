@@ -10,7 +10,7 @@ public class CopyRangeTest {
     @DisplayName("WHEN srcStart falls within the range of src's indices and the length is a number that fits within the range from srcStart to src.length, THEN " +
             "The subarray is transferred to dst successfully.")
     @Test
-    void testBasicTransfer(){
+    void testBasicTransfer( ){
         int[] src = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int[] dst = {9, 8, 7, 6, 5, 4, 3, 2, 1};
         boolean result = ArrayUtilities.copyRange(src,2, dst,4,3);
