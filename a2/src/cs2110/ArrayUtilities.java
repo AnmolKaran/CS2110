@@ -89,7 +89,7 @@ public class ArrayUtilities {
 
 
         //Initial checks
-        if (height == 0 && width == 0){ //should always return true, even if other args aren't valid
+        if (height == 0 || width == 0){ //should always return true, even if other args aren't valid
             return true;
         }
 
