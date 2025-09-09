@@ -6,9 +6,7 @@ package cs2110;
  */
 public class ArrayUtilities {
 
-    // TODO 1: Write JavaDoc specifications for this method based on the description of its behavior
-    //  in the assignment handout. This documentation should include a list of all scenarios that
-    //  will cause the method to return `false`.
+
 
     /**
      * Returns 'true' if the subarray of length 'length' from array 'src' starting at index 'srcStart' is
@@ -23,9 +21,7 @@ public class ArrayUtilities {
      *
     */
     static boolean copyRange(int[] src, int srcStart, int[] dst, int dstStart, int length) {
-        // TODO 4: Complete the definition of this method. You may not call any methods outside of
-        //  the `ArrayUtilities` class, and you must document the invariants of any loop(s) with a
-        //  comment.
+
 
         //Initial checks
 
@@ -72,8 +68,7 @@ public class ArrayUtilities {
         //throw new UnsupportedOperationException();
     }
 
-    // TODO 6a: Write JavaDoc specifications for this method based on the description of its behavior
-    //  in the assignment handout.
+
     /**Returns `true` if the rectangular sub-array of size `height`x`width` from array `src`,
      * starting at index `(srcI, srcJ)`, is successfully transferred to array `dst`, starting at
      * index `(dstI, dstJ)`. Otherwise, returns `false`. This method returns `false` for the following:any
@@ -91,9 +86,7 @@ public class ArrayUtilities {
     */
     static boolean copy2DRange(int[][] src, int srcI, int srcJ, int[][] dst, int dstI, int dstJ,
             int height, int width) {
-        // TODO 6b: Complete the definition of this method. You may not call any methods outside of
-        //  the `ArrayUtilities` class, and you must document the invariants of any loop(s) with a
-        //  comment.
+
 
         //Initial checks
         if (height == 0 && width == 0){ //should always return true, even if other args aren't valid
