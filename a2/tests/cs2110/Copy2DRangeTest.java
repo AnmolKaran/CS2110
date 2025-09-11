@@ -157,7 +157,7 @@ public class Copy2DRangeTest {
     void testSameArrayOverlapVertical() {
         // Arrange
         int[][] sameArray = {{1, 2}, {3, 4}, {0, 0}, {0, 0}};
-        int[][] expected = {{1, 2}, {3, 4}, {1, 2}, {3, 4}};
+        int[][] expected = {{1, 2}, {1,2}, {3, 4}, {0, 0}};
 
         // Act - Copy the top 2x2 block to a position one row down.
         boolean result = ArrayUtilities.copy2DRange(sameArray, 0, 0, sameArray, 1, 0, 2, 2);
