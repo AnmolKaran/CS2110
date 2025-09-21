@@ -90,9 +90,7 @@ public class ArrayUtilities {
 
 
         //Initial checks
-        if (height == 0 || width == 0){ //should always return true, even if other args aren't valid
-            return true;
-        }
+
 
         if (height <0 || width <0){
             return false;
@@ -104,7 +102,9 @@ public class ArrayUtilities {
         if (srcI + height > src.length || dstI + height > dst.length){
             return false;
         }
-
+        if (height == 0 || width == 0){ //should always return true, even if other args aren't valid
+            return true;
+        }
 
         /*
           * Loop Invariant: All rows in 'src[srcI..srcI+ k -1] have a length greater

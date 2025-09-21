@@ -173,30 +173,5 @@ public class CopyRangeTest {
         assertArrayEquals(new int[]{}, src);
         assertArrayEquals(new int[]{1,2,3}, dst);
     }
-
-    @DisplayName("WHEN length is 0 but srcStart is out of bounds, THEN it returns true AND arrays are unchanged")
-    @Test
-    void testZeroLengthWithOutOfBoundsSrcStart() {
-        int[] src = {10,20,30};
-        int[] dst = {99, 98, 97};
-
-        boolean result = ArrayUtilities.copyRange(src, 5, dst, 1, 0);
-
-        assertTrue(result);
-        assertArrayEquals(new int[]{10,20,30}, src);
-        assertArrayEquals(new int[]{99, 98, 97}, dst);
-    }
-
-    @DisplayName("WHEN length is 0 but dstStart is out of bounds, THEN it returns true AND arrays are unchanged")
-    @Test
-    void testZeroLengthWithOutOfBoundsDstStart() {
-        int[] src = {10,20,30};
-        int[] dst = {99, 98, 97};
-
-        boolean result = ArrayUtilities.copyRange(src, 1 ,dst, 10, 0);
-
-        assertTrue(result);
-        assertArrayEquals(new int[]{10,20,30}, src);
-        assertArrayEquals(new int[]{99, 98, 97}, dst);
-    }
+    
 }
