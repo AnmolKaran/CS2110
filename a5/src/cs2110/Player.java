@@ -62,4 +62,5 @@ public abstract class Player extends Actor {
      * and `false` if the chosen action completes the player's turn.
      */
     public abstract boolean chooseAction();
+
 }

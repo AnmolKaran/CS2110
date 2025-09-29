@@ -3,15 +3,32 @@ package cs2110;
 import java.util.Scanner;
 
 
-//Todo: write invariants for class methods, also specifications i think
+/**
+ * A type of Player that can equip Weapons to modify its power and toughness stats.
+ */
 public class Fighter extends Player{
+
+    /**
+     * The weapon the Fighter has equipped. It can be null if no weapon is equipped.
+     */
     private Weapon equippedWeapon;
 
+    /**
+     * Constructs a new Fighter with the given 'name' associated
+     * with the engine that created it. A Fighter starts with no weapon equipped.
+     */
     public Fighter(String name,GameEngine engine){
         super(name, engine);
         this.equippedWeapon = null;
     }
 
+
+    /**
+     * Asks the user if they want to change equipment and handles the logic for swapping weapons.
+     * This method overrides the general behavior of a Player's turn.
+     * Returns 'true' always, as a Fighter proceeds to the attack phase
+     * regardless of their choice.
+     */
     @Override
     public boolean chooseAction() {
 
@@ -28,15 +45,17 @@ public class Fighter extends Player{
             if (this.equippedWeapon != null){
                 this.equippedWeapon.equip();
 
-            }else{
-                //TODO: make sure this right
-                System.out.println("Unequipped");
             }
             return true;
         }
         return true;
     }
 
+
+    /**
+     * Returns the Fighter's total power, which is calculated
+     * by adding the equipped weapon's power to the Fighter's base power.
+     */
     @Override
     public int power(){
         int weaponPower = 0;
@@ -48,6 +67,10 @@ public class Fighter extends Player{
 
     }
 
+    /**
+     * Returns the Fighter's total toughness, which is calculated
+     * by adding the equipped weapon's toughness to the FIghter's base toughness.
+     */
     @Override
     public int toughness(){
         int weaponToughness = 0;
@@ -57,6 +80,10 @@ public class Fighter extends Player{
         return super.toughness() + weaponToughness;
     }
 
+    /**
+     * Handles the Fighter's death. Ensures that the Fighter drops its weapon,
+     * making it available again, before the regular Player death process occurs.
+     */
     @Override
     protected void processDeath(){
         if (equippedWeapon != null){
