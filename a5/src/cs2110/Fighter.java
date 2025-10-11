@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 
 /**
- * A type of Player that can equip Weapons to modify its power and toughness stats.
+ * A type of Player that can equip a Weapon to modify its power and toughness stats.
  */
-public class Fighter extends Player{
+public class Fighter extends Player {
 
     /**
      * The weapon the Fighter has equipped. It can be null if no weapon is equipped.
@@ -15,9 +15,9 @@ public class Fighter extends Player{
 
     /**
      * Constructs a new Fighter with the given 'name' associated
-     * with the engine that created it. A Fighter starts with no weapon equipped.
+     * with the Game Engine 'engine' that created it. A Fighter starts with no weapon equipped.
      */
-    public Fighter(String name,GameEngine engine){
+    public Fighter(String name, GameEngine engine) {
         super(name, engine);
         this.equippedWeapon = null;
     }
@@ -35,14 +35,14 @@ public class Fighter extends Player{
 
         System.out.print("Would you like to change your current equipment (yes/no)? ");
         String response = engine.getInputLine();
-        if (response.equalsIgnoreCase("yes")){
+        if (response.equalsIgnoreCase("yes")) {
             Weapon chosenWeapon = engine.selectWeapon();
-            if (this.equippedWeapon!= null){
+            if (this.equippedWeapon != null) {
                 this.equippedWeapon.unequip();
             }
             this.equippedWeapon = chosenWeapon;
             // chosenWeapon can be null
-            if (this.equippedWeapon != null){
+            if (this.equippedWeapon != null) {
                 this.equippedWeapon.equip();
 
             }
@@ -57,9 +57,9 @@ public class Fighter extends Player{
      * by adding the equipped weapon's power to the Fighter's base power.
      */
     @Override
-    public int power(){
+    public int power() {
         int weaponPower = 0;
-        if (equippedWeapon != null){
+        if (equippedWeapon != null) {
             weaponPower = equippedWeapon.power();
 
         }
@@ -72,9 +72,9 @@ public class Fighter extends Player{
      * by adding the equipped weapon's toughness to the FIghter's base toughness.
      */
     @Override
-    public int toughness(){
+    public int toughness() {
         int weaponToughness = 0;
-        if (equippedWeapon!=null){
+        if (equippedWeapon != null) {
             weaponToughness = equippedWeapon.toughness();
         }
         return super.toughness() + weaponToughness;
@@ -85,8 +85,8 @@ public class Fighter extends Player{
      * making it available again, before the regular Player death process occurs.
      */
     @Override
-    protected void processDeath(){
-        if (equippedWeapon != null){
+    protected void processDeath() {
+        if (equippedWeapon != null) {
             //System.out.println();
             equippedWeapon.unequip();
             equippedWeapon = null;
